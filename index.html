@@ -7,8 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <html lang="fr">
+        
 
-</head>
+</head>  
  
 <body>
     <header>
@@ -23,7 +24,14 @@
           <li onclick="location.href='#h8'">termes spécifiques</li>
           <li onclick="location.href='#h9'">Contacts</li>
         </ul>
-   </header>
+    </header>
+    <div id="welcomeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Bienvenue sur notre site !</h2>
+            <p>Nous espérons que vous y trouverez des informations utiles.</p>
+        </div>
+    </div>
     <div id="h2"><h2>contexte historique</h2>
      <p><br><b>Web 1.0 (années 1990) :</b> Web statique, centré sur la distribution d’informations. Principalement utilisé par les grandes entreprises pour des sites orientés produits, avec peu d’interaction utilisateur. Les premiers sites d’e-commerce apparaissent à cette époque.
         <br><b>Web 2.0 (web social) :</b> Introduction du partage et de l’échange de contenus. Émergence des réseaux sociaux, des blogs et des smartphones. Le web devient plus interactif et démocratique, mais entraîne une prolifération de contenus de qualité variable.
@@ -110,11 +118,33 @@
          <p>Si vous avez des questions, n'hésitez pas à nous contacter via ce <a href="mailto:contact@leweb.com">formulaire de contact</a>.</p>
         <button onclick="location.href='mailto:contact@leweb.com'">Envoyer un email</button>
     </section>
+  
 
     <footer>
         ©Lewebetsesdifférentsaspectss
     </footer>
-    
+    <script>
+        window.onload = function() {
+            var modal = document.getElementById("welcomeModal");
+            var span = document.getElementsByClassName("close")[0];
+
+            
+            modal.style.display = "block";
+
+            
+            span.onclick = function() {
+                modal.style.display = "none";
+            };
+
+           
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            };
+        };
+    </script>
+   
 </body>
 
 </html>
