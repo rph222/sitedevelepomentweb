@@ -24,14 +24,17 @@
           <li onclick="location.href='#h8'">termes spécifiques</li>
           <li onclick="location.href='#h9'">Contacts</li>
         </ul>
-    </header>
-    <div id="welcomeModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Bienvenue sur notre site !</h2>
-            <p>Nous espérons que vous y trouverez des informations utiles.</p>
+    </header>µ
+    
+        </div><div class="popup" id="myPopup">
+            <div class="popup-content">
+              <h2>Bienvenue sur mon site !</h2>
+                <p>j'espère que vous y trouverai toutes vos informations.</p>
+               <p><b>Veuillez saisir votre nom :</b></p>
+              <input type="text" id="nameInput">
+              <button onclick="submitName()">Envoyer</button>
+            </div>
         </div>
-    </div>
     <div id="h2"><h2>contexte historique</h2>
      <p><br><b>Web 1.0 (années 1990) :</b> Web statique, centré sur la distribution d’informations. Principalement utilisé par les grandes entreprises pour des sites orientés produits, avec peu d’interaction utilisateur. Les premiers sites d’e-commerce apparaissent à cette époque.
         <br><b>Web 2.0 (web social) :</b> Introduction du partage et de l’échange de contenus. Émergence des réseaux sociaux, des blogs et des smartphones. Le web devient plus interactif et démocratique, mais entraîne une prolifération de contenus de qualité variable.
@@ -124,26 +127,20 @@
         ©Lewebetsesdifférentsaspectss
     </footer>
     <script>
-        window.onload = function() {
-            var modal = document.getElementById("welcomeModal");
-            var span = document.getElementsByClassName("close")[0];
-
-            
-            modal.style.display = "block";
-
-            
-            span.onclick = function() {
-                modal.style.display = "none";
-            };
-
-           
-            window.onclick = function(event) {
-                if (event.target == modal) {
-                    modal.style.display = "none";
-                }
-            };
-        };
-    </script>
+        function showPopup() {
+          document.getElementById("myPopup").style.display = "flex";
+        }
+    
+        function submitName() {
+          const name = document.getElementById("nameInput").value;
+          alert("Bonjour, " + name + " !");
+          closePopup();
+        }
+    
+        function closePopup() {
+          document.getElementById("myPopup").style.display = "none";
+        }
+      </script>
    
 </body>
 
